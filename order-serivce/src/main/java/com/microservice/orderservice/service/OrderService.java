@@ -31,7 +31,7 @@ public class OrderService {
         payment.setOrderId(order.getId());
         payment.setAmount(order.getPrice() * order.getQty());
 
-        Payment paymentResponse = restTemplate.postForObject("http://localhost:9191/payment", payment, Payment.class);
+        Payment paymentResponse = restTemplate.postForObject("http://PAYMENT-SERVICE/payment", payment, Payment.class);
 
         if(paymentResponse.getPaymentStatus().equals("Success")){
             response = "Payment Success! Order Placed";
